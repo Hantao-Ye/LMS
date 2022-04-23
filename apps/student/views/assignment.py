@@ -82,7 +82,7 @@ def assignments_page(request, course_id):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def assignments_table(request, course_id):
     course = Course.objects.get(id=course_id)
     student = Student.objects.get(user=request.user)
@@ -97,7 +97,7 @@ def assignments_table(request, course_id):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def assignment_page(request, course_id, assignment_id):
     course = Course.objects.get(id=course_id)
     student = Student.objects.get(user=request.user)

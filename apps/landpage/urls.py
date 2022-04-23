@@ -1,4 +1,4 @@
-from django.urls import re_path, include
+from django.urls import re_path
 
 from apps.landpage.views import txt
 from apps.landpage.views import landpage
@@ -37,7 +37,4 @@ urlpatterns = [
                        
     # Sitemap
     re_path(r'^sitemap\.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-
-    # Captcha
-    re_path(r'^captcha/', include('captcha.urls')),
 ]

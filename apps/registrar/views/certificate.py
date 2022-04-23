@@ -51,7 +51,7 @@ def certificates_table(request):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def change_certificate_accessiblity(request):
     response_data = {'status': 'failed', 'message': 'unknown error with saving'}
     if request.is_ajax():

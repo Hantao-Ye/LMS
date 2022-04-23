@@ -48,7 +48,7 @@ def peer_reviews_page(request, course_id):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def assignment_page(request, course_id, submission_id):
     course = Course.objects.get(id=course_id)
     student = Student.objects.get(user=request.user)
@@ -86,7 +86,7 @@ def assignment_page(request, course_id, submission_id):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def peer_review_modal(request, course_id, submission_id):
     response_data = {}
     if request.is_ajax():

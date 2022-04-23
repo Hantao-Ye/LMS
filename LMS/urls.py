@@ -26,8 +26,8 @@ urlpatterns = [
                   re_path(r'', include('apps.login.urls')),
                   re_path(r'', include('apps.student.urls')),
                   re_path(r'', include('apps.teacher.urls')),
-              ] + static(settings.STATIC_URL, document_root=settings.MEDIA_ROOT)
+              ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
 
 urlpatterns += [
     path('captcha/', include('captcha.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

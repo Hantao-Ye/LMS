@@ -14,7 +14,7 @@ from apps.teacher.forms import QuizQuestionTypeForm
 from apps.teacher.forms import TrueFalseQuestionForm
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def quizzes_page(request, course_id):
     course = Course.objects.get(id=course_id)
     teacher = Teacher.objects.get(user=request.user)
@@ -30,7 +30,7 @@ def quizzes_page(request, course_id):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def quizzes_table(request, course_id):
     course = Course.objects.get(id=course_id)
     teacher = Teacher.objects.get(user=request.user)
@@ -47,7 +47,7 @@ def quizzes_table(request, course_id):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def quiz_modal(request, course_id):
     if request.method == u'POST':
         # Get the quiz_id of post and either create a brand new form
@@ -65,7 +65,7 @@ def quiz_modal(request, course_id):
         })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def save_quiz(request, course_id):
     response_data = {'status': 'failed', 'message': 'unknown error with saving'}
     if request.is_ajax():
@@ -91,7 +91,7 @@ def save_quiz(request, course_id):
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def delete_quiz(request, course_id):
     response_data = {'status': 'failed', 'message': 'unknown error with deleting'}
     if request.is_ajax():
@@ -197,7 +197,7 @@ def question_true_false_modal(request, course_id, quiz_id):
             })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def save_question(request, course_id, quiz_id):
     response_data = {'status': 'failed', 'message': 'unknown error with saving'}
     if request.is_ajax():
@@ -245,7 +245,7 @@ def save_question(request, course_id, quiz_id):
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def delete_question(request, course_id, quiz_id):
     response_data = {'status': 'failed', 'message': 'unknown error with deleting'}
     if request.is_ajax():

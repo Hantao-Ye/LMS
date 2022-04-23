@@ -33,7 +33,7 @@ def teaching_page(request):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def refresh_teaching_table(request):
     try:
         teacher = Teacher.objects.get(user=request.user)
@@ -51,7 +51,7 @@ def refresh_teaching_table(request):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def course_modal(request):
     if request.method == u'POST':
         course_id = int(request.POST['course_id'])
@@ -83,7 +83,7 @@ def delete_course_modal(request):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def save_course(request):
     response_data = {'status': 'failed', 'message': 'unknown error with saving'}
     if request.is_ajax():
@@ -125,7 +125,7 @@ def save_course(request):
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def course_delete(request):
     response_data = {'status': 'failed', 'message': 'unknown error with deleting'}
     if request.is_ajax():

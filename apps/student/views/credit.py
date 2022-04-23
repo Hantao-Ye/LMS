@@ -118,7 +118,7 @@ def submit_credit_application(request, course_id):
         return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def error_credits_modal(request, course_id, submission_id):
     response_data = {}
     if request.is_ajax():

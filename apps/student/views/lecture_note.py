@@ -37,7 +37,7 @@ def lecture_notes_page(request, course_id, lecture_id):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def view_lecture_note(request, course_id, lecture_id):
     response_data = {}
     if request.is_ajax():

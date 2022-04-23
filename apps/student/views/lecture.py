@@ -36,7 +36,7 @@ def lectures_page(request, course_id):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def lecture(request, course_id):
     response_data = {}
     if request.is_ajax():

@@ -11,7 +11,7 @@ from apps.registrar.models import Teacher
 from apps.teacher.forms import LectureForm
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def lectures_page(request, course_id):
     course = Course.objects.get(id=course_id)
     teacher = Teacher.objects.get(user=request.user)
@@ -30,7 +30,7 @@ def lectures_page(request, course_id):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def lectures_table(request, course_id):
     course = Course.objects.get(id=course_id)
     teacher = Teacher.objects.get(user=request.user)
@@ -51,7 +51,7 @@ def lectures_table(request, course_id):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def lecture_modal(request, course_id):
     if request.method == u'POST':
         # Get the lecture_id of post and either create a brand new form
@@ -69,7 +69,7 @@ def lecture_modal(request, course_id):
         })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def save_lecture(request, course_id):
     response_data = {'status': 'failed', 'message': 'unknown error with saving'}
     if request.is_ajax():
@@ -95,7 +95,7 @@ def save_lecture(request, course_id):
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def delete_lecture(request, course_id):
     response_data = {'status': 'failed', 'message': 'unknown error with deleting'}
     if request.is_ajax():

@@ -14,7 +14,7 @@ from apps.registrar.models import QuizSubmission
 from apps.registrar.models import Student
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def settings_page(request, course_id):
     course = Course.objects.get(id=course_id)
     try:
@@ -37,7 +37,7 @@ def settings_page(request, course_id):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def suspend_course(request, course_id):
     response_data = {'status': 'failed', 'message': 'unknown error with saving'}
     if request.is_ajax():

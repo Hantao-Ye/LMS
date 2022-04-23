@@ -39,7 +39,7 @@ def announcements_page(request, course_id):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def announcements_table(request, course_id):
     course = Course.objects.get(id=course_id)
     teacher = Teacher.objects.get(user=request.user)
@@ -56,7 +56,7 @@ def announcements_table(request, course_id):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def announcement_modal(request, course_id):
     if request.method == u'POST':
         # Get the announcement_id of post and either create a brand new form
@@ -72,7 +72,7 @@ def announcement_modal(request, course_id):
         return render(request, 'teacher/announcement/modal.html', {'form': form})
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def save_announcement(request, course_id):
     response_data = {'status': 'failed', 'message': 'unknown error with saving'}
     if request.is_ajax():
@@ -101,7 +101,7 @@ def save_announcement(request, course_id):
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def delete_announcement(request, course_id):
     response_data = {'status': 'failed', 'message': 'unknown error with deleting'}
     if request.is_ajax():

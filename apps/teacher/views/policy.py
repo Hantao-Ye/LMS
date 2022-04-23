@@ -29,14 +29,14 @@ def policy_page(request, course_id):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def policy_modal(request, course_id):
     if request.method == u'POST':
         form = PolicyForm()
         return render(request, 'teacher/policy/modal.html', {'form': form})
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def save_policy(request, course_id):
     response_data = {'status': 'failed', 'message': 'unknown error with saving'}
     if request.is_ajax():
@@ -52,7 +52,7 @@ def save_policy(request, course_id):
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def delete_policy(request, course_id):
     response_data = {'status': 'failed', 'message': 'unknown error with deleting'}
     if request.is_ajax():

@@ -19,7 +19,7 @@ from apps.registrar.models import Syllabus
 # Public Functions
 # --------------------
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def overview_page(request, course_id):
     course = Course.objects.get(id=course_id)
 
@@ -88,7 +88,7 @@ def overview_page(request, course_id):
     })
 
 
-@login_required(login_url='/landpage')
+# @login_required(login_url='/landpage')
 def submit_course_for_review(request, course_id):
     course = Course.objects.get(id=course_id)
     response_data = {'status': 'failed', 'message': ''}
@@ -165,7 +165,7 @@ def submit_course_for_review(request, course_id):
 
     # Make sure we have a final exam
     is_final = has_final_exam(exams)
-    if is_final == False:
+    if not is_final:
         response_data['message'] = 'course requires only 1 final exam'
         return HttpResponse(json.dumps(response_data), content_type="application/json")
 
@@ -221,6 +221,6 @@ def total_final_mark_worth(course):
 def has_final_exam(exams):
     count = 0
     for exam in exams:
-        if exam.is_final == True:
+        if exam.is_final:
             count += 1
     return count == 1
