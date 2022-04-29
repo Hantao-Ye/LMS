@@ -14,20 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls.static import static, settings
-from django.contrib import admin
+from django.contrib import admin, auth
 from django.urls import path, re_path, include
+from django.views.generic import TemplateView
 
 urlpatterns = [
+                  path('', TemplateView.as_view(template_name="index.html")),
                   path('admin/', admin.site.urls),
-                  # re_path(r'', include('apps.landpage.urls')),
+                  re_path(r'', include('django.contrib.auth.urls')),
                   re_path(r'', include('apps.account.urls')),
                   re_path(r'', include('apps.registrar.urls')),
-                  re_path(r'', include('apps.registration.urls')),
-                  re_path(r'', include('apps.login.urls')),
                   re_path(r'', include('apps.student.urls')),
                   re_path(r'', include('apps.teacher.urls')),
+                  re_path(r'', include('apps.registration.urls'))
               ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
 
 urlpatterns += [
-    path('captcha/', include('captcha.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                   path('captcha/', include('captcha.urls')),
+               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

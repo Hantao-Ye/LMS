@@ -11,7 +11,7 @@ from apps.student.forms import CourseDiscussionPostForm
 from apps.student.forms import CourseDiscussionThreadForm
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def discussion_page(request, course_id):
     course = Course.objects.get(id=course_id)
 
@@ -31,7 +31,7 @@ def discussion_page(request, course_id):
     })
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def threads_table(request, course_id):
     course = Course.objects.get(id=course_id)
 
@@ -47,7 +47,7 @@ def threads_table(request, course_id):
     })
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def new_thread_modal(request, course_id):
     course = Course.objects.get(id=course_id)
     form = CourseDiscussionThreadForm()
@@ -58,7 +58,7 @@ def new_thread_modal(request, course_id):
     })
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def insert_thread(request, course_id):
     response_data = {'status': 'failed', 'message': 'unknown error detected.'}
     if request.is_ajax():
@@ -97,7 +97,7 @@ def delete_thread(request, course_id):
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def thread_page(request, course_id, thread_id):
     course = Course.objects.get(id=course_id)
 
@@ -120,7 +120,7 @@ def thread_page(request, course_id, thread_id):
     })
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def posts_table(request, course_id, thread_id):
     course = Course.objects.get(id=course_id)
 
@@ -139,7 +139,7 @@ def posts_table(request, course_id, thread_id):
     })
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def new_post_modal(request, course_id, thread_id):
     course = Course.objects.get(id=course_id)
     thread = CourseDiscussionThread.objects.get(
@@ -155,7 +155,7 @@ def new_post_modal(request, course_id, thread_id):
     })
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def insert_post(request, course_id, thread_id):
     response_data = {'status': 'failed', 'message': 'unknown error detected.'}
     if request.is_ajax():

@@ -7,7 +7,7 @@ from apps.registrar.models import CourseFinalMark
 from apps.registrar.models import Student
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def transcript_page(request):
     courses = Course.objects.filter(status=settings.COURSE_AVAILABLE_STATUS)
 

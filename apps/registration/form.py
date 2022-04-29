@@ -1,9 +1,11 @@
-from captcha.fields import CaptchaField
 from django import forms
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
+from captcha.fields import CaptchaField
 
-class RegisterForm(forms.Form):
+class RegisterForm(UserCreationForm):
+
     first_name = forms.CharField(
         label='First Name',
         max_length=100,
@@ -27,7 +29,7 @@ class RegisterForm(forms.Form):
         }),
         required=True,
     )
-    password = forms.CharField(
+    password1 = forms.CharField(
         label='Password',
         max_length=100,
         widget=forms.TextInput(attrs={
@@ -37,7 +39,7 @@ class RegisterForm(forms.Form):
         }),
         required=True,
     )
-    password_repeated = forms.CharField(
+    password2 = forms.CharField(
         label='Repeat Password',
         max_length=100,
         widget=forms.TextInput(attrs={
@@ -47,16 +49,13 @@ class RegisterForm(forms.Form):
         }),
         required=True,
     )
-    is_18_or_plus = forms.BooleanField(
-        required=False
-    )
     captcha = CaptchaField()
 
     # Functions
     # ------------
     def clean_email(self):
         email = self.cleaned_data['email']
-        if email is not None and email is not '':
+        if email != None and email != '':
             try:
                 User.objects.get(email=email)
                 raise forms.ValidationError("Email already exists.")

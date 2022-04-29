@@ -18,7 +18,7 @@ from apps.registrar.models import TrueFalseSubmission
 from apps.student.forms import PeerReviewForm
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def peer_reviews_page(request, course_id):
     course = Course.objects.get(id=course_id)
 
@@ -46,7 +46,7 @@ def peer_reviews_page(request, course_id):
     })
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def assignment_page(request, course_id, assignment_id):
     course = Course.objects.get(id=course_id)
     try:
@@ -81,7 +81,7 @@ def assignment_page(request, course_id, assignment_id):
     })
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def peer_review_modal(request, course_id, assignment_id):
     response_data = {}
     if request.is_ajax():

@@ -19,7 +19,7 @@ from apps.registrar.models import Syllabus
 # Public Functions
 # --------------------
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def overview_page(request, course_id):
     course = Course.objects.get(id=course_id)
 
@@ -88,7 +88,7 @@ def overview_page(request, course_id):
     })
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def submit_course_for_review(request, course_id):
     course = Course.objects.get(id=course_id)
     response_data = {'status': 'failed', 'message': ''}

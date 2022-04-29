@@ -6,7 +6,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/courses">Academics Today</a>
+        <a class="navbar-brand" href="/courses">Online Education</a>
     </div>
     <!-- /.navbar-header -->
     
@@ -25,12 +25,9 @@
                 <li>
                     <a href="/settings"><i class="fa fa-fw fa-gear"></i> Settings</a>
                 </li>
-                <li>
-                    <a href="/donate"><i class="fa fa-fw fa-child"></i> Give Gift</a>
-                </li>
                 <li class="divider"></li>
                 <li>
-                    <a style="cursor: pointer;" onclick="ajax_logout();"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                   <a style="cursor: pointer;" href="/logout/"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                 </li>
             </ul>
             <!-- /.dropdown-user -->
@@ -45,9 +42,6 @@
                 <li {% if tab == 'courses' %}class="active"{% endif %}>
                     <a href="courses"><i class="fa fa-fw fa-university"></i> Courses</a>
                 </li>
-                <li {% if tab == 'enrollment' %}class="active"{% endif %}>
-                    <a href="enrollment"><i class="fa fa-fw fa-bookmark"></i> Enrollment</a>
-                </li>
                 <li {% if tab == 'teaching' %}class="active"{% endif %}>
                     <a href="teaching"><i class="fa fa-fw fa-suitcase"></i> Teaching</a>
                 </li>
@@ -56,9 +50,6 @@
                 </li>
                 <li {% if tab == 'certificates' %}class="active"{% endif %}>
                     <a href="certificates"><i class="fa fa-fw fa-certificate"></i> Certificates</a>
-                </li>
-                <li {% if tab == 'publish' %}class="active"{% endif %}>
-                    <a href="publish"><i class="fa fa-fw fa-book"></i> Self-Publish<span class="fa arrow"></span></a>
                 </li>
             </ul>
         </div>

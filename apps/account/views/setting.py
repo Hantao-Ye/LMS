@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def settings_page(request):
     return render(request, 'account/settings/view.html', {
         'user': request.user,

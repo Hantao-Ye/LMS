@@ -57,7 +57,7 @@ def get_submitted_quizzes(course, student):
 # Public
 
 
-@login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def quizzes_page(request, course_id):
     course = Course.objects.get(id=course_id)
     student = Student.objects.get(user=request.user)
@@ -77,7 +77,7 @@ def quizzes_page(request, course_id):
     })
 
 
-@login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def quizzes_table(request, course_id):
     course = Course.objects.get(id=course_id)
     student = Student.objects.get(user=request.user)
@@ -127,7 +127,7 @@ def delete_quiz(request, course_id):
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 
-@login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def quiz_page(request, course_id, quiz_id):
     course = Course.objects.get(id=course_id)
     student = Student.objects.get(user=request.user)

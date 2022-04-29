@@ -6,7 +6,7 @@ from apps.registrar.models import Announcement
 from apps.registrar.models import Course
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def announcements_page(request, course_id):
     course = Course.objects.get(id=course_id)
     try:

@@ -15,7 +15,7 @@ from apps.registrar.models import Lecture
 # https://docs.djangoproject.com/en/1.7/topics/serialization/
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def lecture_notes_page(request, course_id, lecture_id):
     course = Course.objects.get(id=course_id)
     try:
@@ -37,7 +37,7 @@ def lecture_notes_page(request, course_id, lecture_id):
     })
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def view_lecture_note(request, course_id, lecture_id):
     response_data = {}
     if request.is_ajax():

@@ -10,7 +10,7 @@ from apps.account.models import PrivateMessage
 from apps.account.forms import PrivateMessageForm
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def mail_page(request):
     try:
         email = request.user.email

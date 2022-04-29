@@ -72,7 +72,7 @@ class LectureForm(forms.ModelForm):
 
     def clean(self):
         youtube_url = self.cleaned_data['youtube_url']
-        if youtube_url is not '':
+        if youtube_url != '':
             if "https://www.youtube.com/embed/" not in youtube_url:
                 raise forms.ValidationError("YouTube URL needs to be a embedded URL.")
 

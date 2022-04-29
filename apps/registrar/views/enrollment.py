@@ -9,7 +9,7 @@ from apps.registrar.models import Course
 from apps.registrar.models import Student
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def enrollment_page(request):
     # Create our student account which will build our registration around.
     try:

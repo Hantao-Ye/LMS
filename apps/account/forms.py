@@ -29,21 +29,21 @@ class UserForm(forms.ModelForm):
 
     def clean_first_name(self):
         first_name = self.cleaned_data['first_name']
-        if first_name is not None and first_name is not '':
+        if first_name != None and first_name != '':
             return first_name
         else:
             raise forms.ValidationError("Cannot be blank")
 
     def clean_last_name(self):
         last_name = self.cleaned_data['last_name']
-        if last_name is not None and last_name is not '':
+        if last_name != None and last_name != '':
             return last_name
         else:
             raise forms.ValidationError("Cannot be blank")
 
     def clean_email(self):
         email = self.cleaned_data['email']
-        if email is not None and email is not '':
+        if email != None and email != '':
             return email
         else:
             raise forms.ValidationError("Cannot be blank")

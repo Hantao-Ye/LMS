@@ -40,12 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'captcha',
+    'crispy_forms',
 
     'apps.account.apps.AccountConfig',
     'apps.registrar.apps.RegistrarConfig',
-    'apps.landpage.apps.LandpageConfig',
     'apps.registration.apps.RegistrationConfig',
-    'apps.login.apps.LoginConfig',
     'apps.student.apps.StudentConfig',
     'apps.teacher.apps.TeacherConfig',
 ]
@@ -149,3 +148,8 @@ if 'test' in sys.argv:
 else:
     APPLICATION_HAS_ADVERTISMENT = True  # (True = Yes I want advertisments)
 APPLICATION_HAS_PUBLIC_ACCESS_TO_TEACHERS = True
+
+LOGIN_REDIRECT_URL = "/courses"
+LOGOUT_REDIRECT_URL = "/login/"
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'

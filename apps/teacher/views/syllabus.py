@@ -11,7 +11,7 @@ from apps.registrar.models import Teacher
 from apps.teacher.forms import SyllabusForm
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def syllabus_page(request, course_id):
     course = Course.objects.get(id=course_id)
     try:
@@ -29,14 +29,14 @@ def syllabus_page(request, course_id):
     })
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def syllabus_modal(request, course_id):
     if request.method == u'POST':
         form = SyllabusForm()
         return render(request, 'teacher/syllabus/modal.html', {'form': form})
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def save_syllabus(request, course_id):
     response_data = {'status': 'failed', 'message': 'unknown error with saving'}
     if request.is_ajax():
@@ -52,7 +52,7 @@ def save_syllabus(request, course_id):
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def delete_syllabus(request, course_id):
     response_data = {'status': 'failed', 'message': 'unknown error with deleting'}
     if request.is_ajax():

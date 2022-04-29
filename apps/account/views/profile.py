@@ -8,7 +8,7 @@ from django.shortcuts import render
 from apps.account.forms import UserForm
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def profile_page(request):
     return render(request, 'account/profile/view.html', {
         'user': request.user,

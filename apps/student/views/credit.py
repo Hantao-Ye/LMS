@@ -13,7 +13,7 @@ from apps.registrar.models import QuizSubmission
 from apps.registrar.models import Student
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def credit_page(request, course_id):
     course = Course.objects.get(id=course_id)
     student = Student.objects.get(user=request.user)
@@ -118,7 +118,7 @@ def submit_credit_application(request, course_id):
         return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 
-# @login_required(login_url='/landpage')
+@login_required(login_url='/login')
 def error_credits_modal(request, course_id, submission_id):
     response_data = {}
     if request.is_ajax():

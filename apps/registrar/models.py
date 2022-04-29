@@ -10,6 +10,7 @@ from apps.account.models import Teacher
 
 WORTH_PERCENT_CHOICES = (
     (0, '0 %'),
+    (5, '5 %'),
     (10, '10 %'),
     (15, '15 %'),
     (20, '20 %'),
