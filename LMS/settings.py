@@ -41,6 +41,8 @@ INSTALLED_APPS = [
 
     'captcha',
     'crispy_forms',
+    'django_extensions',
+    'rest_framework',
 
     'apps.account.apps.AccountConfig',
     'apps.registrar.apps.RegistrarConfig',
@@ -153,3 +155,10 @@ LOGIN_REDIRECT_URL = "/courses"
 LOGOUT_REDIRECT_URL = "/login/"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAdminUser',
+    ],
+    'PAGE_SIZE': 10
+}

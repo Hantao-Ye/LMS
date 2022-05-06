@@ -94,7 +94,7 @@ class NoteUploadForm(forms.ModelForm):
         upload = self.cleaned_data['file']
         content_type = upload.content_type
         if content_type in ['application/pdf']:
-            if upload._size <= 20971520:
+            if upload.size <= 20971520:
                 return upload
             else:
                 raise forms.ValidationError("Cannot exceed 20MB size")

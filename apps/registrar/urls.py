@@ -1,11 +1,44 @@
-from django.urls import re_path
+from django.urls import re_path, path, include
+
+from rest_framework.routers import DefaultRouter
+
 from apps.registrar.views import certificate
 from apps.registrar.views import courses
 from apps.registrar.views import enrollment
 from apps.registrar.views import teaching
 from apps.registrar.views import transcript
 
+
+from apps.registrar.views.viewset import *
+
+router = DefaultRouter()
+router.register('file-upload', FileUploadViewSet)
+router.register('course', CourseViewSet)
+router.register('course-submission', CourseSubmissionViewSet)
+router.register('course-setting', CourseSettingViewSet)
+router.register('course-final-mark', CourseFinalMarkViewSet)
+router.register('announcement', AnnouncementViewSet)
+router.register('syllabus', SyllabusViewSet)
+router.register('policy', PolicyViewSet)
+router.register('lecture', LectureViewSet)
+router.register('exam', ExamViewSet)
+router.register('exam-submission', ExamSubmissionViewSet)
+router.register('quiz', QuizViewSet)
+router.register('quiz-submission', QuizSubmissionViewSet)
+router.register('assignment', AssignmentViewSet)
+router.register('assignment-submission', AssignmentSubmissionViewSet)
+router.register('essay-question', EssayQuestionViewSet)
+router.register('peer-review', PeerReviewViewSet)
+router.register('essay-submission', EssaySubmissionViewSet)
+router.register('multiple-choice-question', MultipleChoiceQuestionViewSet)
+router.register('multiple-choice-submission', MultipleChoiceSubmissionViewSet)
+router.register('tf-question', TrueFalseQuestionViewSet)
+router.register('tf-submission', TrueFalseSubmissionViewSet)
+router.register('response-question', ResponseQuestionViewSet)
+router.register('response-submission', ResponseSubmissionViewSet)
+
 urlpatterns = [
+    path('api/', include(router.urls), name='registrar'),
     # Courses
     re_path(r'^courses', courses.courses_page),
     re_path(r'^enroll', courses.enroll),
